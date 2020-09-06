@@ -10,6 +10,13 @@ app.use(express.json());
 const connectDb = require('./config/db');
 connectDb();
 
+// cors
+const corsOptions = {
+    origin:process.env.ALLOWED_CLIENTS.split(',');
+
+    // ['http://localhost:3000','http://localhost:3300','http://localhost:5000']
+}
+
 //template
 app.set('views', path.join(__dirname,'/views'));
 app.set('view engine','ejs');
